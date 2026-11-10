@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\Drink;
 class DrinkController extends Controller
 {
+    use ResponseHandler;
+
+    public function __construct(protected ListDrinkService $listDrinkService) {}
+
     public function getDrinks() {
-        $drinks = Drink::with('type', 'package')->get();
-        return $drinks;
+        $drinks = $this->ListDrinkService->getDrinks();
+
+        return $this->sendResponse($drinks, "Sikeres betöltés", 201);
     }
 }
