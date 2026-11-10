@@ -5,10 +5,11 @@ namespace App\Console\Commands;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
+use Illuminate\Console\Generator\GeneratorCommand;
 
 // #[Signature('app:create-service-command')]
 // #[Description('Command description')]
-class CreateServiceCommand extends Command
+class CreateServiceCommand extends GeneratorCommand
 {
     protected $signature = "make:service {name}";
     protected $description = "Create a new service";
